@@ -1,0 +1,129 @@
+======================================================================
+Evidencia de corrida: 2026-09-23 21:33:38
+======================================================================
+
+
+########## PREGUNTAS DENTRO DE DOMINIO (con RAG) ##########
+
+
+--- Pregunta: ¿Puedo devolver un champú sólido si ya abrí el empaque? ---
+Fallback activado: False
+Mejor chunk (fuente=politica_devoluciones.md, score=4.709)
+Respuesta:
+No, el champú sólido no puede devolverse si el empaque ya fue abierto, salvo que el producto haya llegado dañado, incompleto o con un defecto de fábrica comprobable. En ese caso, EcoMarket revisará cada caso individualmente y podrá ofrecer un reemplazo o un reembolso parcial.
+
+
+--- Pregunta: ¿Cuánto cuesta la mochila de fibras recicladas y se puede devolver? ---
+Fallback activado: False
+Mejor chunk (fuente=politica_devoluciones.md, score=4.853)
+Respuesta:
+La mochila de fibras recicladas tiene un precio de referencia de **$120.000 COP**.  
+Sí, puede devolverse: los productos de hogar se pueden devolver sin problema dentro de los **30 días** posteriores a la fecha de compra, siempre que el empaque esté abierto y el producto no presente daños por uso indebido.
+
+
+--- Pregunta: ¿Cuánto tiempo tarda en llegar mi pedido a Cali? ---
+Fallback activado: False
+Mejor chunk (fuente=faq.md, score=7.728)
+Respuesta:
+El tiempo estimado de entrega para Cali es más corto que el rango general de 5 a 10 días hábiles, aunque no se indica un número exacto en la información disponible.
+
+
+--- Pregunta: ¿Qué métodos de pago acepta EcoMarket? ---
+Fallback activado: False
+Mejor chunk (fuente=faq.md, score=8.666)
+Respuesta:
+EcoMarket acepta los siguientes métodos de pago: tarjetas de crédito y débito, transferencias bancarias (PSE) y pago contra entrega en las ciudades principales.
+
+
+--- Pregunta: Compré un snack de frutas deshidratadas y llegó vencido, ¿qué hago? ---
+Fallback activado: False
+Mejor chunk (fuente=catalogo_productos.md, score=6.056)
+Respuesta:
+El snack de frutas deshidratadas es un producto perecedero y, por lo general, no se devuelve. Sin embargo, si llegó vencido, EcoMarket puede ofrecerte un reemplazo o un reembolso completo, siempre que verifiquemos el reclamo. Por favor, contáctanos para que podamos procesar la excepción y enviarte un nuevo producto o emitir el reembolso.
+
+
+########## PREGUNTAS FUERA DE DOMINIO (con RAG, debe activar fallback) ##########
+
+
+--- Pregunta: ¿Cuál es la capital de Australia? ---
+Fallback activado: True
+Mejor chunk (fuente=faq.md, score=-9.083)
+Respuesta:
+No tengo información suficiente en la base de conocimiento de EcoMarket para responder esto con seguridad. Te recomiendo que un agente humano revise tu caso directamente.
+
+
+--- Pregunta: ¿EcoMarket vende laptops o celulares? ---
+Fallback activado: False
+Mejor chunk (fuente=catalogo_productos.md, score=-1.263)
+Respuesta:
+No tengo información suficiente para responder esto con seguridad. Si necesita ayuda adicional, puedo escalar su consulta a un agente humano de EcoMarket.
+
+
+--- Pregunta: ¿Cuál es el CEO de EcoMarket y cuánto gana? ---
+Fallback activado: False
+Mejor chunk (fuente=politica_devoluciones.md, score=-1.139)
+Respuesta:
+No tengo información suficiente para responder esto con seguridad. Si necesita más detalles, puedo escalar su consulta a un agente humano de EcoMarket.
+
+
+########## COMPARACIÓN CON RAG DESACTIVADO (baseline) ##########
+
+
+--- Pregunta: ¿Puedo devolver un champú sólido si ya abrí el empaque? ---
+Respuesta SIN RAG (solo conocimiento general del modelo):
+¡Hola! 👋🏼
+
+Gracias por contactarnos. En EcoMarket nos esforzamos por ofrecer productos sostenibles y de alta calidad, y también queremos que tu experiencia de compra sea lo más sencilla posible.
+
+### ¿Puedo devolver un champú sólido si ya abrí el empaque?
+
+| **Condición** | **Posibilidad de devolución** | **Pasos a seguir** |
+|---------------|------------------------------|--------------------|
+| **Producto sin abrir** | ✔️ Sí, dentro de los 30 días posteriores a la entrega. | 1. Envía un correo a **devoluciones@ecomarket.com** con tu número de pedido.<br>2. Te enviaremos una etiqueta prepagada. |
+| **Producto abierto pero sin usar** | ✔️ Sí, si el producto está en perfecto estado (sin olores, sin residuos, sin daños). | 1. Contacta a **devoluciones@ecomarket.com** con tu número de pedido y la razón de la devolución.<br>2. Te indicaremos cómo empaquetar el champú sólido de forma segura y sostenible. |
+| **Producto abierto y usado** | ❌ No aceptamos devoluciones por uso, salvo que haya un defecto de fabricación o daño. | 1. Si crees que el producto está defectuoso, envíanos fotos y una descripción del problema.<br>2. Evaluaremos la situación y, si procede, te ofreceremos un reembolso o un reemplazo. |
+
+> **Tip sostenible**: Si decides devolver el champú, puedes reutilizar el envase (por ejemplo, como recipiente para aceites esenciales o como soporte para pequeños objetos). Así, sigues reduciendo residuos.
+
+### ¿Qué hacer ahora?
+
+1. **Revisa tu correo**: Si ya recibiste el pedido, verifica si el champú está en buen estado.  
+2. **Contacta**: Envíanos un correo a **devoluciones@ecomarket.com** con tu número de pedido y la razón de la devolución.  
+3. **Empaquetado**: Usa el mismo envase o un contenedor reciclado. Coloca el champú sólido en una bolsa de tela o papel kraft y envuélvelo con cinta reciclable.  
+4. **Envío**: Una vez que recibamos tu correo, te proporcionaremos una etiqueta de devolución prepagada (si aplica) y te indicaremos la dirección de envío.
+
+### Preguntas frecuentes
+
+- **¿Cuánto tiempo tarda el reembolso?**  
+  Una vez que recibamos el producto, procesamos el reembolso en 3‑5 días hábiles. El importe se acreditará en la misma forma de pago que utilizaste.
+
+- **¿Puedo cambiar el champú por otro producto?**  
+  Sí, si el producto está abierto pero en perfecto estado, puedes solicitar un cambio por otro artículo de la misma categoría. Solo asegúrate de que el nuevo artículo esté disponible en stock.
+
+- **¿Qué hago si el champú llega dañado?**  
+  Por favor, envíanos fotos del daño y el empaque. Te ofreceremos un reemplazo inmediato o un reembolso completo.
+
+---
+
+Si necesitas ayuda adicional o tienes alguna otra pregunta, no dudes en responder a este correo o llamarnos al **+34 900 123 456**. Estamos aquí para ayudarte.
+
+¡Gracias por elegir EcoMarket y por contribuir a un planeta más verde! 🌱
+
+
+--- Pregunta: ¿Cuánto cuesta la mochila de fibras recicladas y se puede devolver? ---
+Respuesta SIN RAG (solo conocimiento general del modelo):
+¡Hola! 👋🏼
+
+**Mochila de fibras recicladas**  
+- **Precio:** 49,99 €  
+- **Envío gratuito** en pedidos superiores a 50 €; de lo contrario, el envío cuesta 4,99 €.
+
+**Política de devoluciones**  
+- Puedes devolver la mochila **en un plazo de 30 días** a partir de la fecha de recepción.  
+- El producto debe estar en su estado original, sin usar y con todas las etiquetas y empaques intactos.  
+- Para iniciar la devolución, simplemente envía un correo a **devoluciones@ecomarket.com** con tu número de pedido y el motivo de la devolución. Te proporcionaremos un **etiqueta de envío prepagada** y las instrucciones paso a paso.  
+- Una vez recibamos el artículo, procesaremos el reembolso en tu método de pago original dentro de 5‑7 días hábiles.
+
+Si necesitas ayuda adicional o tienes alguna otra pregunta, no dudes en contactarnos. ¡Estamos aquí para ayudarte! 🌱
+
+¡Que tengas un excelente día!

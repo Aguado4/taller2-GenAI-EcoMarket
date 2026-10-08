@@ -16,41 +16,21 @@ a Groq, manejo de UTF-8 en Windows).
 |---|---|
 | 1 — Selección de componentes (embeddings + vector DB) | [`respuestas/fase1_seleccion_componentes.md`](./respuestas/fase1_seleccion_componentes.md) |
 | 2 — Base de conocimiento (documentos + chunking) | [`respuestas/fase2_base_conocimiento.md`](./respuestas/fase2_base_conocimiento.md) |
-| 3 — Integración y ejecución del código | código de este repositorio (`rag/`, `app_streamlit.py`) |
+| 3 — Integración y ejecución del código | código de este repositorio (`rag/`, `app_streamlit.py`) + [`respuestas/casos_de_prueba.md`](./respuestas/casos_de_prueba.md) |
 
 ## Arquitectura
 
+```mermaid
+flowchart TD
+    A[Pregunta del cliente] --> B["Retrieval<br/>ChromaDB + embeddings multilingües<br/>top-k candidatos"]
+    B --> C["Re-ranking<br/>CrossEncoder ms-marco-MiniLM-L-6-v2<br/>top-n más relevantes"]
+    C --> D{"¿Mejor score<br/>supera el umbral?"}
+    D -->|Sí| E["Generación con Groq<br/>usando el contexto reordenado"]
+    D -->|No| F["Fallback:<br/>'no tengo información suficiente,<br/>te conecto con un agente humano'<br/>(sin llamar al LLM)"]
 ```
-Pregunta del cliente
-        │
-        ▼
-┌─────────────────────────────────────────────┐
-│ Etapa 1 — Retrieval (rag/pipeline.py)        │
-│ ChromaDB + embeddings multilingües           │
-│ (sentence-transformers, open-source)         │
-│ → top-k chunks candidatos (por defecto 10)   │
-└─────────────────────────────────────────────┘
-        │
-        ▼
-┌─────────────────────────────────────────────┐
-│ Etapa 2 — Re-ranking (rag/pipeline.py)       │
-│ CrossEncoder (ms-marco-MiniLM-L-6-v2)        │
-│ → top-n chunks más relevantes (por defecto 3)│
-└─────────────────────────────────────────────┘
-        │
-        ▼
-¿El mejor score de re-ranking supera el umbral?
-        │                         │
-       Sí                        No
-        │                         │
-        ▼                         ▼
-┌───────────────────┐   Fallback: "no tengo
-│ Etapa 3 —         │   información suficiente,
-│ Generación (Groq) │   te conecto con un agente
-│ con el contexto   │   humano" (sin llamar al LLM)
-│ reordenado        │
-└───────────────────┘
-```
+
+Evidencia de que cada etapa funciona (casos reales, con scores) en
+[`respuestas/casos_de_prueba.md`](./respuestas/casos_de_prueba.md).
 
 ## Estructura del repositorio
 
@@ -58,8 +38,9 @@ Pregunta del cliente
 taller 2 genAI/
 ├── Taller 2.pdf
 ├── respuestas/
-│   ├── fase1_seleccion_componentes.md    # Fase 1 (TODO)
-│   └── fase2_base_conocimiento.md        # Fase 2 (TODO)
+│   ├── fase1_seleccion_componentes.md    # Fase 1: embeddings + vector DB
+│   ├── fase2_base_conocimiento.md        # Fase 2: documentos + chunking + indexación
+│   └── casos_de_prueba.md                # Fase 3: casos de prueba con resultados esperados/obtenidos
 ├── knowledge_base/
 │   ├── politica_devoluciones.md          # Reescritura en prosa de productos.json del Taller 1
 │   ├── catalogo_productos.md             # Catálogo con precios (a partir de productos.json)

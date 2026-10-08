@@ -107,6 +107,20 @@ La barra lateral permite:
 - Ver, para cada respuesta, el panel de transparencia con los chunks
   recuperados y re-rankeados y sus scores.
 
+### 5. Verificar el funcionamiento con casos de prueba
+
+Para no depender de probar manualmente, hay una batería de casos ya
+definida y corrida en [`respuestas/casos_de_prueba.md`](./respuestas/casos_de_prueba.md)
+(preguntas dentro/fuera de dominio, con resultado esperado vs. obtenido).
+Se reproduce con:
+
+```bash
+python -m rag.evaluate
+```
+
+Esto agrega una nueva corrida a `outputs/evidencia_rag.txt` con la
+respuesta completa de cada caso.
+
 ## Componentes elegidos (resumen técnico)
 
 | Componente | Elección | Por qué (detalle en Fase 1) |
